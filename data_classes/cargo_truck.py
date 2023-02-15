@@ -7,10 +7,12 @@ class CargoTruck(Car):
     max_weight: float
     trailer: bool
 
-    def calculate_trip(self, weight: int):
-        regular_trip = -(weight // -self.max_weight)
-        trailer_trip = -(weight // -(self.max_weight + 5))
-        if regular_trip <= trailer_trip:
-            return -(weight // -self.max_weight)
-        else:
-            return weight / self.max_weight
+    def calculate_trips(self, weight: int):
+        regular, trailer = 0, 0
+        while weight > 0:
+            weight -= self.max_weight
+            regular += 1
+            if weight > 0:
+                weight -= 5
+                trailer += 1
+        return regular, trailer

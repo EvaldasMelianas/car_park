@@ -1,5 +1,5 @@
 from dataclasses import dataclass
-from datetime import datetime, timedelta
+from datetime import datetime
 
 
 @dataclass
@@ -12,17 +12,19 @@ class Car:
     categories: str
     fuel_consumption: float
     insured_at_date: str
-    today = datetime.today()
+    today = datetime.now()
+
+    def __post_init__(self):
+        self.serviced_date_obj = datetime.strptime(self.serviced_at_date, "%Y-%m-%d")
+        self.insured_date_obj = datetime.strptime(self.insured_at_date, "%Y-%m-%d")
 
     def needs_service(self) -> bool:
-        serviced_date = datetime.strptime(self.serviced_at_date, "%Y-%m-%d")
-        renewal_date = serviced_date + timedelta(days=30)
-        return self.today.date() >= renewal_date.date()
+        renewal_date = self.serviced_date_obj.replace(month=self.insured_date_obj.month + 1)
+        return self.today.replace(month=self.today.month + 1) <= renewal_date
 
     def needs_insurance(self) -> bool:
-        insurance_date = datetime.strptime(self.insured_at_date, "%Y-%m-%d")
-        renewal_date = insurance_date + timedelta(days=365)
-        return self.today.date() >= renewal_date.date()
+        renewal_date = self.insured_date_obj.replace(month=self.insured_date_obj.month + 1)
+        return self.today.replace(month=self.today.month + 1) <= renewal_date
 
     def cost_of_driving(self, distance: float, fuel_cost: float):
         driving_cost = distance * (self.fuel_consumption/100) * fuel_cost
