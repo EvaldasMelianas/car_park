@@ -1,6 +1,5 @@
 from dataclasses import dataclass
-from datetime import datetime
-from dateutil import relativedelta
+from datetime import datetime, timedelta
 
 
 @dataclass
@@ -15,9 +14,15 @@ class Car:
     insured_at_date: datetime
     today = datetime.now()
 
-    def needs_attention(self, date):
-        renew = date + relativedelta.relativedelta(years=1)
-        return self.today + relativedelta.relativedelta(months=1) >= renew
+    def needs_service(self):
+        renew = (self.serviced_at_date + timedelta(730)).replace(day=1)
+        next_month = (self.today + timedelta(31)).replace(day=1)
+        return renew <= next_month
+
+    def needs_insurance(self):
+        renew = (self.insured_at_date + timedelta(365)).replace(day=1)
+        next_month = (self.today + timedelta(31)).replace(day=1)
+        return renew <= next_month
 
     def cost_of_driving(self, distance: float, fuel_cost: float):
         driving_cost = distance * (self.fuel_consumption/100) * fuel_cost

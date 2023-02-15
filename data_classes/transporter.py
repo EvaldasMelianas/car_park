@@ -1,6 +1,7 @@
 from dataclasses import dataclass
 from data_classes.car import Car
 
+
 @dataclass
 class Transporter(Car):
     passenger_seats: int
