@@ -16,12 +16,12 @@ class Car:
 
     def needs_service(self):
         renew = (self.serviced_at_date + timedelta(730)).replace(day=1)
-        next_month = (self.today + timedelta(31)).replace(day=1)
+        next_month = (self.today.replace(day=1) + timedelta(31)).replace(day=1)
         return renew <= next_month
 
     def needs_insurance(self):
         renew = (self.insured_at_date + timedelta(365)).replace(day=1)
-        next_month = (self.today + timedelta(31)).replace(day=1)
+        next_month = (self.today.replace(day=1) + timedelta(31)).replace(day=1)
         return renew <= next_month
 
     def cost_of_driving(self, distance: float, fuel_cost: float):
