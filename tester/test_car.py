@@ -25,5 +25,5 @@ class TestCar(unittest.TestCase):
 
     def test_cost_by_driving(self):
         self.assertEqual(46.25, self.object1.cost_of_driving(150, 1.8))
-        self.assertEqual(46.06, self.object2.cost_of_driving(150, 1.8))
-        self.assertEqual(73.25, self.object3.cost_of_driving(150, 1.8))
+        self.assertEqual(80.26, self.object2.cost_of_driving(399.5, 1.7))
+        self.assertEqual(4088.52, self.object3.cost_of_driving(10273, 1.59))
