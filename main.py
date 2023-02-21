@@ -4,20 +4,24 @@ from data_classes.cargo_truck import CargoTruck
 from datetime import datetime
 
 
-a = Car(yearly_mileage=69000, plate_number="GFD532", fuel_type="Diesel", exploit_cost=12000.0,
-        serviced_at_date=datetime.strptime("2020-01-31", "%Y-%m-%d"),
-        categories="B", fuel_consumption=15, insured_at_date=datetime.strptime("2020-12-13", "%Y-%m-%d"))
-b = Transporter(yearly_mileage=50000, plate_number="ASD123", fuel_type="Diesel", exploit_cost=9000.0,
-                serviced_at_date=datetime.strptime("2022-02-13", "%Y-%m-%d"), categories="D",
-                fuel_consumption=11.0, insured_at_date=datetime.strptime("2022-12-13", "%Y-%m-%d"), passenger_seats=8)
-c = CargoTruck(yearly_mileage=50000, plate_number="ZXK452", fuel_type="Diesel", exploit_cost=10000.0,
-               serviced_at_date=datetime.strptime("2022-12-13", "%Y-%m-%d"), categories="C",
-               fuel_consumption=25.0, insured_at_date=datetime.strptime("2022-12-13", "%Y-%m-%d"),
-               max_weight=10, trailer_weight=8)
+car = Car(yearly_mileage=69000, plate_number="GFD532", fuel_type="Diesel",
+          exploit_cost=12000.0, serviced_at_date=datetime(2022, 12, 13),
+          categories="B", fuel_consumption=15, insured_at_date=datetime(2022, 12, 13))
 
-#print(a.needs_insurance())
-#print(b.required_for_amount_passengers(120))
-#print(a.cost_of_driving(150, 1.8))
-#print(b.required_for_amount_passengers(16))
-#print(b.calculate_cost_for_amount(16, 100))
-#print(c.calculate_trips(71))
+transporter = Transporter(yearly_mileage=50000, plate_number="ASD123", fuel_type="Diesel",
+                          exploit_cost=9000.0,serviced_at_date=datetime(2022, 12, 13),
+                          categories="D",fuel_consumption=11.0,
+                          insured_at_date=datetime(2022, 12, 13), passenger_seats=8)
+
+cargo_truck = CargoTruck(yearly_mileage=50000, plate_number="ZXK452", fuel_type="Diesel", exploit_cost=10000.0,
+                         serviced_at_date=datetime(2022, 12, 13), categories="C",
+                         fuel_consumption=25.0, insured_at_date=datetime(2022, 12, 13),
+                         max_weight=8, trailer_weight=0)
+
+#print(car.needs_insurance())
+#print(car.needs_service())
+#print(transporter.required_for_amount_passengers(120))
+#print(car.cost_of_driving(150, 1.8))
+#print(transporter.required_for_amount_passengers(16))
+#print(transporter.calculate_cost_for_amount(16, 100))
+#print(cargo_truck.calculate_trips(24))
