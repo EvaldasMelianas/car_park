@@ -2,10 +2,11 @@ from dataclasses import dataclass
 from data_classes.car import Car
 import math
 
+
 @dataclass
 class CargoTruck(Car):
     max_weight: float
-    trailer_weight: int = None
+    trailer_weight: int = 0
 
     def calculate_trips(self, weight: int):
         trailer = weight / (self.max_weight + self.trailer_weight)
