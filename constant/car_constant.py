@@ -14,10 +14,3 @@ c = CargoTruck(yearly_mileage=50000, plate_number="ZXK452", fuel_type="Diesel", 
                serviced_at_date=datetime.strptime("2022-12-13", "%Y-%m-%d"), categories="C",
                fuel_consumption=25.0, insured_at_date=datetime.strptime("2022-12-13", "%Y-%m-%d"),
                max_weight=10, trailer_weight=8)
-
-#print(a.needs_insurance())
-#print(b.required_for_amount_passengers(120))
-#print(a.cost_of_driving(150, 1.8))
-#print(b.required_for_amount_passengers(16))
-#print(b.calculate_cost_for_amount(16, 100))
-#print(c.calculate_trips(71))
