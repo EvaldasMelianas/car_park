@@ -24,11 +24,6 @@ class TestCar(unittest.TestCase):
         self.assertFalse(self.object3.needs_service())
 
     def test_cost_by_driving(self):
-        self.assertEqual(self.object1.cost_of_driving(150, 1.8), 46.25)
-        self.object2.fuel_consumption = 15
-        self.assertEqual(self.object2.cost_of_driving(150, 1.8), 46.06)
-        self.object3.yearly_mileage, self.object3.exploit_cost = 69000, 12000
-        self.assertEqual(self.object3.cost_of_driving(150, 1.8), 73.25)
-
-if __name__ == '__main__':
-    unittest.main()
+        self.assertEqual(46.25, self.object1.cost_of_driving(150, 1.8))
+        self.assertEqual(46.06, self.object2.cost_of_driving(150, 1.8))
+        self.assertEqual(73.25, self.object3.cost_of_driving(150, 1.8))
