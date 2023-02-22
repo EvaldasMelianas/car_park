@@ -7,8 +7,8 @@ class TestCargoTruck(unittest.TestCase):
 
     def setUp(self):
         self.object = CargoTruck(yearly_mileage=50000, plate_number="ZXK452", fuel_type="Diesel", exploit_cost=10000.0,
-                                 serviced_at_date=datetime(2022, 12, 13), categories="C",
-                                 fuel_consumption=25.0, insured_at_date=datetime(2022, 12, 13),
+                                 service_at_date=datetime(2022, 12, 13), categories="C",
+                                 fuel_consumption=25.0, insure_at_date=datetime(2022, 12, 13),
                                  max_weight=10, trailer_weight=8)
 
     def test_calculate_trips(self):

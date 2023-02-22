@@ -7,9 +7,9 @@ class TestTransporter(unittest.TestCase):
 
     def setUp(self):
         self.transporter = Transporter(yearly_mileage=50000, plate_number="ASD123", fuel_type="Diesel",
-                                       exploit_cost=9000.0, serviced_at_date=datetime(2022, 12, 13),
+                                       exploit_cost=9000.0, service_at_date=datetime(2022, 12, 13),
                                        categories="D", fuel_consumption=11.0,
-                                       insured_at_date=datetime(2022, 12, 13), passenger_seats=8)
+                                       insure_at_date=datetime(2022, 12, 13), passenger_seats=8)
 
     def test_required_for_transport(self):
         self.assertEqual(15, self.transporter.required_for_amount_passengers(120))

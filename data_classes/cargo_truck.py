@@ -5,8 +5,8 @@ import math
 
 @dataclass
 class CargoTruck(Car):
-    max_weight: float
-    trailer_weight: int = 1
+    max_weight: float = 10
+    trailer_weight: int = 0
 
     def calculate_trips(self, weight: int):
         with_trailer = math.ceil(weight / (self.max_weight + self.trailer_weight))

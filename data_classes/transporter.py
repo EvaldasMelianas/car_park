@@ -4,7 +4,7 @@ from data_classes.car import Car
 
 @dataclass
 class Transporter(Car):
-    passenger_seats: int
+    passenger_seats: int = 5
 
     def required_for_amount_passengers(self, amount: int):
         return -(amount // -self.passenger_seats)
