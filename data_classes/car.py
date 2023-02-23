@@ -18,12 +18,12 @@ class Car:
     today = datetime.now()
 
     def needs_service(self):
-        next_month = (self.today.replace(day=1) + timedelta(31)).replace(day=1)
-        return self.service_at_date <= next_month
+        next_month = (self.today.replace(day=1) + timedelta(31))
+        return self.service_at_date.replace(day=1) <= next_month.replace(day=1)
 
     def needs_insurance(self):
-        next_month = (self.today.replace(day=1) + timedelta(31)).replace(day=1)
-        return self.insure_at_date <= next_month
+        next_month = self.today.replace(day=1) + timedelta(31)
+        return self.insure_at_date.replace(day=1) <= next_month.replace(day=1)
 
     def calculate_vehicle_cost(self, distance: float, fuel_cost: float):
         driving_cost = distance * (self.fuel_consumption/100) * fuel_cost
