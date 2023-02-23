@@ -37,5 +37,4 @@ class Car:
         end_date = (self.driver.vacation + timedelta(days=self.driver.vacation_duration)).date()
         if self.today.date() >= self.driver.vacation.date():
             return end_date < self.today.date()
-        else:
-            return end_date > self.today.date()
+        return end_date > self.today.date()
